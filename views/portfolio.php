@@ -1,17 +1,16 @@
 <div>
     <table class="table table-striped">
 
-    <thead>
-        <tr>
-            <th>Symbol</th>
-            <th>Name</th>
-            <th>Shares</th>
-            <th>Price</th>
-            <th>TOTAL</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($positions as $position): ?>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody><?php foreach ($positions as $position): ?>
         <tr>
             <td><?=($position["symbol"]) ?></td>
             <td><?=($position["name"]) ?></td>
@@ -20,13 +19,15 @@
             <td><?= "\$".($position["shares"]*$position["price"]) ?></td>
             
         </tr>
-        <?php endforeach ?>
+            <?php endforeach ?>
         <tr>
-        <td >CASH</td>
-        <td colspan="3"></td>
-        <td><?= "\${$position["cash"]}" ?></td>
+            <td colspan="4">CASH</td>
+            <td><?php if(isset($positions)){
+                        echo("\$".$positions[0]["cash"]);
+                        }
+                        ?></td>
         </tr>
-    </tbody>
-    </table>
+        </tbody>
+        </table>
 
 </div>
