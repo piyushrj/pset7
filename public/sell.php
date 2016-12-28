@@ -30,6 +30,7 @@
                 CS50::query("DELETE FROM portfolios WHERE user_id =? AND symbol=?",$_SESSION["id"],$_POST["symbol"]);
                 $price =@$n_shares[0]["shares"]*$stock["price"];
                 CS50::query("UPDATE users SET cash = cash + $price WHERE id = ?",$_SESSION["id"]);
+                CS50::query("INSERT INTO history (uid,action,datetime,symbol,shares,price) VALUES(?,'SELL',CURRENT_TIMESTAMP,?,?,?)",$_SESSION["id"],strtoupper($_POST["symbol"]),@$n_shares[0]["shares"],$stock["price"]);
                 require("before_portfol.php");
                    
             }

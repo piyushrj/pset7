@@ -25,7 +25,9 @@
              $cash=CS50::query("SELECT cash FROM users WHERE id=?",$_SESSION["id"]);
              if(@$cash[0]["cash"]>$price)
              {
-                 CS50::query("INSERT INTO portfolios (user_id,symbol,shares) VALUES(?,?,?) ON DUPLICATE KEY UPDATE shares=shares+?",$_SESSION["id"],$_POST["symbol"],$_POST["shares"],$_POST["shares"]);
+                 
+                 CS50::query("INSERT INTO history (uid,action,datetime,symbol,shares,price) VALUES(?,'BUY',CURRENT_TIMESTAMP,?,?,?)",$_SESSION["id"],strtoupper($_POST["symbol"]),$_POST["shares"],$stock["price"]);
+                 CS50::query("INSERT INTO portfolios (user_id,symbol,shares) VALUES(?,?,?) ON DUPLICATE KEY UPDATE shares=shares+?",$_SESSION["id"],strtoupper($_POST["symbol"]),$_POST["shares"],$_POST["shares"]);
                  CS50::query("UPDATE users SET cash = cash - $price WHERE id = ?",$_SESSION["id"]);
                  require("before_portfol.php");
                 
