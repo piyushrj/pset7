@@ -39,8 +39,8 @@
             // remember that user's now logged in by storing user's ID in session
             $_SESSION["id"] = $id;
 
-            // redirect to portfolio
-            redirect("/");
+                // redirect to portfolio
+                redirect("/");
         }
      }
  ?>

@@ -20,14 +20,11 @@
             
         </tr>
             <?php endforeach ?>
-        <tr>
-            <td colspan="4">CASH</td>
-            <td><?php if(isset($positions)){
-                        echo("\$".$positions[0]["cash"]);
-                        }
-                        ?></td>
-        </tr>
+        
         </tbody>
         </table>
+        <div>
+            <p text-align: center><b>Cash Left : $<?=implode($cash)?></b></p>
+        </div>
 
 </div>
