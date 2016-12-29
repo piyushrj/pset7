@@ -24,7 +24,7 @@
         </tbody>
         </table>
         <div>
-            <p text-align: center><b>Cash Left : $<?=implode($cash)?></b></p>
+            <p text-align: center><b>Cash Left : $<?=number_format(implode($cash),2,'.','')?></b></p>
         </div>
 
 </div>

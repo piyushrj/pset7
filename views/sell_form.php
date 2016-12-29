@@ -2,7 +2,7 @@
     <fieldset>
         <div class="form-group">
             <select class="form-control" name="symbol">
-                <option disabled selected value="">symbol</option>
+                <option disabled selected value="">Symbol</option>
                 <?php foreach ($symbols as $symbol): ?>
                     <option value='<?=$symbol?>'><?=$symbol?></option>
                 <?php endforeach ?>
